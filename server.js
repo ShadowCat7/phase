@@ -1,5 +1,8 @@
 var fs = require('fs');
 var http = require('http');
+var static = require('node-static');
+
+var file = new(static.Server)('./public', { cache: 0 });
 
 var artists;
 
@@ -91,12 +94,7 @@ fs.readFile('./music.list', "ascii", function(err, data)
 		{
 			if (requestInfo === null)
 			{
-				fs.readFile('./client.html',function(err, data)
-				{
-					response.setHeader("Content-Type", "text/html");
-					response.write(data);
-					response.end();
-				});
+				file.serve(request, response, function(err, result) { });
 			}
 		});
 	});
