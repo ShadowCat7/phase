@@ -1,5 +1,4 @@
-function onYouTubePlayerReady(playerId)
-{
+function onYouTubePlayerReady(playerId) {
 	ytplayer = document.getElementById("myytplayer");
 
 	ytplayer.addEventListener("onStateChange", "onPlayerStateChange");
@@ -11,22 +10,18 @@ function onYouTubePlayerReady(playerId)
 	nextSong();
 }
 
-function muteVideo()
-{
-	if (ytplayer.isMuted())
-	{
+function muteVideo() {
+	if (ytplayer.isMuted()) {
 		ytplayer.unMute();
 		$("#muteButton").text("Mute");
 	}
-	else
-	{
+	else {
 		ytplayer.mute();
 		$("#muteButton").text("Unmute");
 	}
 }
 
-function onPlayerStateChange(newState)
-{
+function onPlayerStateChange(newState) {
 	if (newState === 0)
 	{ nextSong(); }
 	else if (newState === 2)

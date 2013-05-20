@@ -1,81 +1,85 @@
 .<!DOCTYPE html>
 <html lang="en-US">
 <head>
-<title>Phase</title>
-<link rel="icon" type="image/png" href="./favicon_music.png" />
-<link rel="stylesheet" type="text/css" href="./client.css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript">
+	<title>Phase</title>
+	<link rel="icon" type="image/png" href="./favicon_music.png" />
+	<link rel="stylesheet" type="text/css" href="./client.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
 
-$.ajaxSetup({
-	cache: true
-});
+		$.ajaxSetup({
+			cache: true
+		});
 
-$.getScript("http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js", function() {
-	$.getScript("./scripts/youtube-setup.js", function() {
-		$.getScript("./scripts/other-scripts.js", function() {
-			$(document).ready(function()
-			{
-				$(".rightContainer").hide();
-				$("#songListContainer").show();
-				swfobject.embedSWF("http://www.youtube.com/v/l8JCX9E0bEI&enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&controls=0&disablekb=1&iv_load_policy=3", "ythere", $(".videoSize").width(), $(".videoSize").height(), "8", null, null, { allowScriptAccess: "always" }, { id: "myytplayer" });
-				$(window).resize(function()
-				{
-					$("#myytplayer").width($(".videoSize").width());
-					$("#myytplayer").height($(".videoSize").height());
+		$.getScript("http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js", function () {
+			$.getScript("./scripts/youtube-setup.js", function () {
+				$.getScript("./scripts/other-scripts.js", function () {
+					$(document).ready(function () {
+						$(".rightContainer").hide();
+						$("#songListContainer").show();
+						swfobject.embedSWF("http://www.youtube.com/v/l8JCX9E0bEI&enablejsapi=1&version=3&playerapiid=ytplayer&autoplay=1&controls=0&disablekb=1&iv_load_policy=3", "ythere", $(".videoSize").width(), $(".videoSize").height(), "8", null, null, { allowScriptAccess: "always" }, { id: "myytplayer" });
+						$(window).resize(function () {
+							$("#myytplayer").width($(".videoSize").width());
+							$("#myytplayer").height($(".videoSize").height());
+						});
+					});
 				});
 			});
 		});
-	});
-});
 
 
-</script>
+	</script>
 </head>
 <body>
-<div class="menu">
-Hello.
-</div>
-<div class="videoSize">
-</div>
-<div class="video" id="video">
-<div id="ythere">
-Your browser does not support Flash.
-</div>
-</div>
-<div class="upcoming" id="upcoming">
-<button class="allButtons" id="muteButton" onclick="muteVideo()">Mute</button>
-<button style="left:25%" class="allButtons" onclick="nextSong()">Skip</button>
-<div class="upcomingScrollTable">
-<table class="infoTable" id="upcomingTable">
-</table>
-</div>
-</div>
-<div style="left:51%" class="tab" id="songsTab">
-Videos
-</div>
-<div style="left:69%" class="tab" id="addTab">
-Add
-</div>
-<div style="right:2%" class="tab" id="chatTab">
-Chat
-</div>
-<div class="rightContainer" id="addSongContainer">
-<div class="margin">
-Song name: <input class="getText" name="songInput"><br>
-Artist name: <input class="getText" name="artistInput"><br>
-YouTube URL: <input class="getText" name="urlInput"><br>
-<button onclick="addNewSong()">Add New Song</button>
-</div>
-</div>
-<div class="rightContainer" id="songListContainer">
-<div class="allSongsScrollTable">
-<table class="infoTable" id="allSongsTable">
-</table>
-</div>
-</div>
-<div class="rightContainer" id="chatContainer">
-Chat
-</div>
+	<div class="menu">
+		Hello.
+	</div>
+	<div class="videoSize">
+	</div>
+	<div class="video" id="video">
+		<div id="ythere">
+			Your browser does not support Flash.
+		</div>
+	</div>
+	<div class="upcoming" id="upcoming">
+		<button class="allButtons" id="muteButton" onclick="muteVideo()">
+			Mute</button>
+		<button style="left: 25%" class="allButtons" onclick="nextSong()">
+			Skip</button>
+		<div class="upcomingScrollTable">
+			<table class="infoTable" id="upcomingTable">
+			</table>
+		</div>
+	</div>
+	<div style="left: 51%" class="tab" id="songsTab">
+		Videos
+	</div>
+	<div style="left: 69%" class="tab" id="addTab">
+		Add
+	</div>
+	<div style="right: 2%" class="tab" id="chatTab">
+		Chat
+	</div>
+	<div class="rightContainer" id="addSongContainer">
+		<div class="margin">
+			Song name:
+			<input class="getText" name="songInput"><br>
+			Artist name:
+			<input class="getText" name="artistInput"><br>
+			YouTube URL:
+			<input class="getText" name="urlInput"><br>
+			<button onclick="addNewSong()">
+				Add New Song</button>
+		</div>
+	</div>
+	<div class="rightContainer" id="songListContainer">
+		<div class="allSongsScrollTable">
+			<table class="infoTable" id="allSongsTable">
+			</table>
+		</div>
+	</div>
+	<div class="rightContainer" id="chatContainer">
+		Chat
+	</div>
 </body>
 </html>
